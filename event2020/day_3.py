@@ -326,7 +326,7 @@ input = """
 
 from parser import parse
 
-lines = parse(input, list)
+lines = parse(input.split("\n"), list)
 
 from itertools import cycle
 

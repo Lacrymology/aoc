@@ -1011,7 +1011,7 @@ def parse_line(ln):
     return (min, max), letter, pswd
 
 
-lines = parse(input, parse_line)
+lines = parse(input.split("\nw"), parse_line)
 
 valid = 0
 for (start, end), letter, passwd in lines:

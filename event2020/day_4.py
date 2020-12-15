@@ -1,9 +1,10 @@
-# with open("day_4.input", "r") as file:
-#     input = file.read()
+from os import path
+
+curdir = path.dirname(__file__)
 
 passports = []
 passport = {}
-for line in open("day_4.input", "r"):
+for line in open(path.join(curdir, "day_4.input"), "r"):
     print(repr(line))
     if not line.strip():
         if passport:

@@ -1,4 +1,7 @@
+from os import path
 from parser import parse
+
+curdir = path.dirname(__file__)
 
 
 def fbrltobin(v):
@@ -8,7 +11,7 @@ def fbrltobin(v):
     return int(v, 2)
 
 
-with open("day_5.input") as f:
+with open(path.join(curdir, "day_5.input")) as f:
     values = parse(f, fbrltobin)
 
 print(max(values))

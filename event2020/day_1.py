@@ -205,8 +205,8 @@ from parser import parse
 from itertools import combinations
 from functools import reduce
 
-lines = parse(input, int)
-# print(lines)
+lines = parse(input.split("\n"), int)
+print(lines)
 for a, b in combinations(lines, 2):
     if a + b == 2020:
         print(f"{a} + {b} = {a+b}")

@@ -1,11 +1,14 @@
+from os import path
 from parser import parse
+
+curdir = path.dirname(__file__)
 
 
 def parse_group(v):
     return [set(a for a in person) for person in v.strip().split("\n")]
 
 
-with open("day_6.input") as f:
+with open(path.join(curdir, "day_6.input")) as f:
     groups = parse(f.read().split("\n\n"), parse_group)
 
 # for group in groups:
