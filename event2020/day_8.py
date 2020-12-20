@@ -18,7 +18,14 @@ class InfiniteLoopError(Exception):
 
 
 class Process:
+    """
+    Process executor, initialize with a list of instructions
+    """
+
     def __init__(self, code: list):
+        """
+        `code` should be a list[(instr, int)]
+        """
         self._code = code
 
         self._accum = 0
@@ -28,15 +35,22 @@ class Process:
         self._fixed = False
 
     def execute(self):
+        """
+        Execute the whole code, raise InfiniteLoopError if one is found, return the
+        accumulator otherwise
+        """
         while 0 <= self._cp < len(self._code):
             if self._cp in self._visited_instrs:
                 raise InfiniteLoopError(self._cp, self._accum)
 
             self._visited_instrs.add(self._cp)
-            self.execute_next()
+            self._execute_next()
         return self._accum
 
-    def execute_next(self):
+    def _execute_next(self):
+        """
+        Execute the next instruction
+        """
         instr, param = self._code[self._cp]
         # print(f"{self._cp:0>3d}: {instr} {param}")
 
